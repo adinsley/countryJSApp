@@ -40,19 +40,18 @@ var countryInfo = function(){
   countryCurrency.innerText = "Currency: " + result.currencies;
 
   borderArray = result.borders;
-
+  var bordering = document.querySelector(".borders");
+  //bordering.innerText = borderArray;
+   var borderingArray = []
   for(var i = 0; i < borderArray.length;  i++){
     var borderer = _.find(countries, function(o){return o.alpha3Code === borderArray[i];});
-    //console.log(borderer)
-    var bordering = document.createElement("p")
-    bordering.style.display = "inline-block";
-    bordering.style.padding = "10px"
-    bordering.innerText = borderer.name;
-    bordering.style.color ="red"
-
-    var borderParent = document.querySelector(".borders");
-    borderParent.appendChild(bordering);
-  }  
+      extendedString = "  " + borderer.name;
+      borderingArray.push(extendedString)
+    
+  
+   
+    }  
+      bordering.innerText = borderingArray;
 }
 
 
